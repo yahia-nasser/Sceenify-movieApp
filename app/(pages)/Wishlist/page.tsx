@@ -54,11 +54,11 @@ export default function WishlistPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 justify-between items-center gap-7">
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="card bg-base-100 rounded-xl shadow-md p-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]"
+            className="card bg-base-100 flex flex-column items-center justify-between gap-3 rounded-xl shadow-md h-full p-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]"
           >
             {movie.poster_path ? (
               <Link href={`/movieDetails/${movie.id}`}>
@@ -66,8 +66,8 @@ export default function WishlistPage() {
                   src={movie.poster_path}
                   alt={movie.title}
                   width={200}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-lg mb-2"
+                  height={200}
+                  className="w-full object-cover rounded-lg mb-2"
                 />
               </Link>
             ) : (
@@ -80,7 +80,7 @@ export default function WishlistPage() {
 
             <button
               onClick={() => handleRemove(movie.id)}
-              className="mt-4 md:w-1/2 md:text-xl text-lg transition btn hover:btn-error btn-outline mx-auto"
+              className="mt-5 md:w-1/2 md:text-xl text-lg transition btn hover:btn-error btn-outline mx-auto"
             >
               Remove
             </button>
