@@ -9,7 +9,7 @@ const Nav = () => {
         </Link>
       </div>
       <div className="wishlist">
-        <Link href="/wishlist" className="btn btn-outline btn-error">
+        <Link href="/Wishlist" className="btn btn-outline btn-error">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -10,8 +10,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import WishlistButton from "@/app/_components/MovieCard/AddBTN";
 
-const MovieDetails = async ({ params }) => {
+const MovieDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
   const res: Details = await getSingleMovie(id);
   const { results } = await getRecommendations(id);
@@ -58,6 +63,9 @@ const MovieDetails = async ({ params }) => {
             Language:{" "}
             <span className="text-gray-500">{res.original_language}</span>
           </p>
+          <div className="w-1/4">
+            <WishlistButton movie={res} />
+          </div>
         </div>
       </div>
       <div className=" w-[80%] md:w-full mx-auto border border-gray-500 p-5 rounded-xl mb-10">
@@ -80,6 +88,9 @@ const MovieDetails = async ({ params }) => {
                     ></Image>
                     <h3>{movie.title}</h3>
                     <h4 className="text-gray-500">{movie.release_date}</h4>
+                    <h4 className="font-bold">
+                      ⭐ {movie.vote_average?.toFixed(1) || "0.0"}
+                    </h4>
                   </Link>
                 </CarouselItem>
               );
